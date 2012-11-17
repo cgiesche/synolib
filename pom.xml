@@ -47,4 +47,9 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<scm>
+		<developerConnection>scm:git:ssh://git@perdoctus.de/~/synolib.git</developerConnection>
+	</scm>
+
 </project>
