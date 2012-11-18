@@ -13,6 +13,8 @@ import de.perdoctus.synolib.responses.LoginResponse;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Created by IntelliJ IDEA.
  * User: cgiesche
@@ -25,7 +27,7 @@ public class DownloadRedirectorClient {
     private String username = "";
     private String password = "";
     
-    RequestExecutor executor;
+    private RequestExecutor executor;
     private String  sessionId;
     
     public DownloadRedirectorClient() {
@@ -99,4 +101,12 @@ public class DownloadRedirectorClient {
             throw new CommunicationException("LoginRequest failed.");
         }
     }
+
+	@Override
+	public String toString() {
+		return "DownloadRedirectorClient [username=" + username + ", password="
+				+ StringUtils.repeat('*', password.length()) + ", sessionId="
+				+ sessionId + "]";
+	}
+    
 }
