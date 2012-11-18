@@ -7,6 +7,7 @@ package de.perdoctus.synolib.responses;
  */
 public abstract class DownloadRedirectorResponse {
     private boolean success;
+    private String errcode;
 
     public boolean isSuccess() {
         return success;
@@ -15,4 +16,12 @@ public abstract class DownloadRedirectorResponse {
     public void setSuccess(boolean success) {
         this.success = success;
     }
+    
+    public String getErrcode() {
+		return errcode;
+	}
+    
+    public void setErrcode(String errcode) {
+		this.errcode = errcode;
+	}
 }

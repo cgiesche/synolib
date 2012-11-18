@@ -4,11 +4,12 @@
  */
 package de.perdoctus.synolib;
 
-import de.perdoctus.synolib.exceptions.CommunicationException;
-import de.perdoctus.synolib.exceptions.SynoException;
-import de.perdoctus.synolib.requests.DownloadRedirectorRequest;
-import de.perdoctus.synolib.requests.KeyValue;
-import de.perdoctus.synolib.responses.DownloadRedirectorResponse;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -22,12 +23,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.exc.UnrecognizedPropertyException;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
+import de.perdoctus.synolib.exceptions.CommunicationException;
+import de.perdoctus.synolib.exceptions.SynoException;
+import de.perdoctus.synolib.requests.DownloadRedirectorRequest;
+import de.perdoctus.synolib.requests.KeyValue;
+import de.perdoctus.synolib.responses.DownloadRedirectorResponse;
 
 /**
  *
@@ -102,6 +104,8 @@ public class RequestExecutor {
         T drResponse;
         try {
             drResponse = mapper.readValue(entity.getContent(), clazz);
+        } catch (UnrecognizedPropertyException ex) {
+        	throw new CommunicationException("Failed to parse JSON response!", ex);
         } catch (IOException ex) {
             throw new CommunicationException("Could not read response body!", ex);
         } catch (IllegalStateException ex) {

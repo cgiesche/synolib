@@ -16,4 +16,5 @@ public class LoginRequest extends DownloadRedirectorRequest {
         requestParams.add(new KeyValue("username", username));
         requestParams.add(new KeyValue("passwd", password));
     }
+    
 }
