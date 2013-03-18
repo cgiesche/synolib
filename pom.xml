@@ -49,5 +49,4 @@
 	<scm>
 		<developerConnection>scm:git:ssh://git@perdoctus.de/opt/git/synolib.git</developerConnection>
 	</scm>
-
 </project>
