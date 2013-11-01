@@ -39,6 +39,8 @@ import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.exc.UnrecognizedPropertyException;
 
+import at.co.blogspot.javaskeleton.WebClientDevWrapper;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -68,6 +70,7 @@ public class RequestExecutor {
         }
         if (this.httpClient == null) {
             this.httpClient = new DefaultHttpClient();
+            WebClientDevWrapper.wrapClient(httpClient);
         }
 
         HttpUriRequest request;
