@@ -77,7 +77,21 @@
 
     <scm>
         <connection>https://github.com/cgiesche/synolib.git</connection>
-        <developerConnection>scm:git:ssh://git@perdoctus.de/opt/git/synolib.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com:cgiesche/synolib.git</developerConnection>
     </scm>
+
+    <repositories>
+        <repository>
+            <name>Perdoctus Repo</name>
+            <id>perdoctus-repo</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <url>http://nexus.perdoctus.de/content/groups/perdoctus/</url>
+        </repository>
+    </repositories>
 
 </project>
