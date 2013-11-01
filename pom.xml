@@ -25,6 +25,12 @@
     <artifactId>synolib</artifactId>
     <version>1.0.2-SNAPSHOT</version>
 
+    <parent>
+        <groupId>de.perdoctus</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.1</version>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
