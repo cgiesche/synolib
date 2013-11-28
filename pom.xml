@@ -14,16 +14,15 @@
   ~ GNU General Public License for more details.
   ~
   ~ You should have received a copy of the GNU General Public License
-  ~ along with synolib.  If not, see <http://www.gnu.org/licenses/>.
+  ~ along with synolib.  If not, see <http://www.gnu.org/licenses />.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.perdoctus</groupId>
     <artifactId>synolib</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <parent>
         <groupId>de.perdoctus</groupId>
@@ -84,7 +83,8 @@
     <scm>
         <connection>https://github.com/cgiesche/synolib.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/cgiesche/synolib.git</developerConnection>
-    </scm>
+      <tag>synolib-1.0.2</tag>
+  </scm>
 
     <repositories>
         <repository>
