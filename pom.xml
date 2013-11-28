@@ -22,7 +22,7 @@
 
     <groupId>de.perdoctus</groupId>
     <artifactId>synolib</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <parent>
         <groupId>de.perdoctus</groupId>
@@ -83,7 +83,7 @@
     <scm>
         <connection>https://github.com/cgiesche/synolib.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/cgiesche/synolib.git</developerConnection>
-      <tag>synolib-1.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <repositories>
