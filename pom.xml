@@ -83,7 +83,7 @@
 
     <scm>
         <connection>https://github.com/cgiesche/synolib.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:cgiesche/synolib.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/cgiesche/synolib.git</developerConnection>
     </scm>
 
     <repositories>
