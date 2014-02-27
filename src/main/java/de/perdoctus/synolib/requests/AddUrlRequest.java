@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -31,32 +31,32 @@ public class AddUrlRequest extends DownloadRedirectorRequest {
 
     private final static String ACTION = "addurl";
 
-    public AddUrlRequest(URI uri, String sessionId) {
-        super("POST");
+	public AddUrlRequest(final URI uri, final String sessionId) {
+		super("POST");
 
         setParams(uri.toString(), sessionId);
     }
 
-    public AddUrlRequest(URI uri, LoginResponse loginResponse) {
-        super("POST");
+	public AddUrlRequest(final URI uri, final LoginResponse loginResponse) {
+		super("POST");
 
         setParams(uri.toString(), loginResponse.getId());
     }
 
-    public AddUrlRequest(URL url, String sessionId) {
-        super("POST");
+	public AddUrlRequest(final URL url, final String sessionId) {
+		super("POST");
 
         setParams(url.toString(), sessionId);
     }
 
-    public AddUrlRequest(URL url, LoginResponse loginResponse) {
-        super("POST");
+	public AddUrlRequest(final URL url, final LoginResponse loginResponse) {
+		super("POST");
 
         setParams(url.toString(), loginResponse.getId());
     }
 
-    private void setParams(String url, String sessionId) {
-        requestParams.add(new KeyValue("action", ACTION));
+	private void setParams(final String url, final String sessionId) {
+		requestParams.add(new KeyValue("action", ACTION));
         requestParams.add(new KeyValue("id", sessionId));
         requestParams.add(new KeyValue("url", url));
     }

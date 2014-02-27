@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -23,22 +23,22 @@ package de.perdoctus.synolib.responses;
  * @author Christoph Giesche
  */
 public abstract class DownloadRedirectorResponse {
-    private boolean success;
-    private String errcode;
+	private boolean success;
+	private String errcode;
 
-    public boolean isSuccess() {
-        return success;
-    }
+	public boolean isSuccess() {
+		return success;
+	}
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
+	public void setSuccess(final boolean success) {
+		this.success = success;
+	}
 
-    public String getErrcode() {
-        return errcode;
-    }
+	public String getErrcode() {
+		return errcode;
+	}
 
-    public void setErrcode(String errcode) {
-        this.errcode = errcode;
-    }
+	public void setErrcode(final String errcode) {
+		this.errcode = errcode;
+	}
 }

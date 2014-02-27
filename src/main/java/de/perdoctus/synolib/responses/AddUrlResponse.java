@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -26,14 +26,14 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class AddUrlResponse extends DownloadRedirectorResponse {
 
-    @JsonProperty("task_error_limit")
-    private String taskErrorLimit;
+	@JsonProperty("task_error_limit")
+	private String taskErrorLimit;
 
-    public String getTaskErrorLimit() {
-        return taskErrorLimit;
-    }
+	public String getTaskErrorLimit() {
+		return taskErrorLimit;
+	}
 
-    public void setTaskErrorLimit(String taskErrorLimit) {
-        this.taskErrorLimit = taskErrorLimit;
-    }
+	public void setTaskErrorLimit(final String taskErrorLimit) {
+		this.taskErrorLimit = taskErrorLimit;
+	}
 }

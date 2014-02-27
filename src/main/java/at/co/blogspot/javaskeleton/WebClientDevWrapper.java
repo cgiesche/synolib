@@ -1,16 +1,25 @@
+/*
+ * Copyright 2014 Christoph Giesche
+ *
+ * This file is part of synolib.
+ *
+ * synolib is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * synolib is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with synolib.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package at.co.blogspot.javaskeleton;
 
-import java.io.IOException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLException;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSession;
-
+import de.perdoctus.synolib.RequestExecutor;
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.scheme.Scheme;
@@ -20,7 +29,10 @@ import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.log4j.Logger;
 
-import de.perdoctus.synolib.RequestExecutor;
+import javax.net.ssl.*;
+import java.io.IOException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 
 /*
  * http://javaskeleton.blogspot.co.at/2010/07/avoiding-peer-not-authenticated-with.html
@@ -31,54 +43,54 @@ public class WebClientDevWrapper {
 
     private static final Logger LOG = Logger.getLogger(RequestExecutor.class);
 
-	
-	public static HttpClient wrapClient(HttpClient base) {
+
+	public static HttpClient wrapClient(final HttpClient base) {
 		return wrapClient(base, 443);
 	}
 
-    public static HttpClient wrapClient(HttpClient base, int port) {
-        try {
-            SSLContext ctx = SSLContext.getInstance("TLS");
-            X509TrustManager tm = new X509TrustManager() {
+	public static HttpClient wrapClient(final HttpClient base, final int port) {
+		try {
+			final SSLContext ctx = SSLContext.getInstance("TLS");
+			final X509TrustManager tm = new X509TrustManager() {
 
-                public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-                }
+				public void checkClientTrusted(final X509Certificate[] xcs, final String string) throws CertificateException {
+				}
 
-                public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-                }
+				public void checkServerTrusted(final X509Certificate[] xcs, final String string) throws CertificateException {
+				}
 
                 public X509Certificate[] getAcceptedIssuers() {
                     return null;
                 }
             };
-            X509HostnameVerifier verifier = new X509HostnameVerifier() {
+			final X509HostnameVerifier verifier = new X509HostnameVerifier() {
+
+				@Override
+				public void verify(final String string, final SSLSocket ssls) throws IOException {
+				}
 
                 @Override
-                public void verify(String string, SSLSocket ssls) throws IOException {
-                }
+				public void verify(final String string, final X509Certificate xc) throws SSLException {
+				}
 
                 @Override
-                public void verify(String string, X509Certificate xc) throws SSLException {
-                }
+				public void verify(final String string, final String[] strings, final String[] strings1) throws SSLException {
+				}
 
                 @Override
-                public void verify(String string, String[] strings, String[] strings1) throws SSLException {
-                }
-
-                @Override
-                public boolean verify(String string, SSLSession ssls) {
-                    return true;
+				public boolean verify(final String string, final SSLSession ssls) {
+					return true;
                 }
             };
             ctx.init(null, new TrustManager[]{tm}, null);
-            SSLSocketFactory ssf = new SSLSocketFactory(ctx);
-            ssf.setHostnameVerifier(verifier);
-            ClientConnectionManager ccm = base.getConnectionManager();
-            SchemeRegistry sr = ccm.getSchemeRegistry();
-            sr.register(new Scheme("https", ssf, port));
+			final SSLSocketFactory ssf = new SSLSocketFactory(ctx);
+			ssf.setHostnameVerifier(verifier);
+			final ClientConnectionManager ccm = base.getConnectionManager();
+			final SchemeRegistry sr = ccm.getSchemeRegistry();
+			sr.register(new Scheme("https", ssf, port));
             return new DefaultHttpClient(ccm, base.getParams());
-        } catch (Exception ex) {
-            LOG.error("Error enabling https-connections", ex);
+		} catch (final Exception ex) {
+			LOG.error("Error enabling https-connections", ex);
         	return null;
         }
     }

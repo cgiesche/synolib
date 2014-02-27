@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -26,8 +26,8 @@ public class LoginRequest extends DownloadRedirectorRequest {
 
     private final static String ACTION = "login";
 
-    public LoginRequest(String username, String password) {
-        super("POST");
+	public LoginRequest(final String username, final String password) {
+		super("POST");
 
         requestParams.add(new KeyValue("action", ACTION));
         requestParams.add(new KeyValue("username", username));

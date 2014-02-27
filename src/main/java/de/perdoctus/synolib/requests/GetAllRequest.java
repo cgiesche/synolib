@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -26,22 +26,22 @@ import de.perdoctus.synolib.responses.LoginResponse;
  */
 public class GetAllRequest extends DownloadRedirectorRequest {
 
-    private static final String ACTION = "getall";
+	private static final String ACTION = "getall";
 
-    public GetAllRequest(LoginResponse response) {
-        super("GET");
+	public GetAllRequest(final LoginResponse response) {
+		super("GET");
 
-        setParams(response.getId());
-    }
+		setParams(response.getId());
+	}
 
-    public GetAllRequest(String sessionId) {
-        super("GET");
+	public GetAllRequest(final String sessionId) {
+		super("GET");
 
-        setParams(sessionId);
-    }
+		setParams(sessionId);
+	}
 
-    private void setParams(String sessionId) {
-        requestParams.add(new KeyValue("action", ACTION));
-        requestParams.add(new KeyValue("id", sessionId));
-    }
+	private void setParams(final String sessionId) {
+		requestParams.add(new KeyValue("action", ACTION));
+		requestParams.add(new KeyValue("id", sessionId));
+	}
 }

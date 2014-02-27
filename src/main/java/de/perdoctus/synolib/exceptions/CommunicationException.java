@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -23,11 +23,11 @@ package de.perdoctus.synolib.exceptions;
  * @author Christoph Giesche
  */
 public class CommunicationException extends SynoException {
-    public CommunicationException(String message) {
-        super(message);
-    }
+	public CommunicationException(final String message) {
+		super(message);
+	}
 
-    public CommunicationException(String message, Throwable cause) {
-        super(message, cause);
-    }
+	public CommunicationException(final String message, final Throwable cause) {
+		super(message, cause);
+	}
 }

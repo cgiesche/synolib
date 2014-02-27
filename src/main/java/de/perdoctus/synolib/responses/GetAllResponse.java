@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -25,13 +25,13 @@ import java.util.List;
  * @author Christoph Giesche
  */
 public class GetAllResponse extends DownloadRedirectorResponse {
-    private List<DownloadItem> items;
+	private List<DownloadItem> items;
 
-    public List<DownloadItem> getItems() {
-        return items;
-    }
+	public List<DownloadItem> getItems() {
+		return items;
+	}
 
-    public void setItems(List<DownloadItem> items) {
-        this.items = items;
-    }
+	public void setItems(final List<DownloadItem> items) {
+		this.items = items;
+	}
 }

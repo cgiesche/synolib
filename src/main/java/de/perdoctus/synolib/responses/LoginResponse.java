@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -25,23 +25,23 @@ import org.codehaus.jackson.annotate.JsonProperty;
  * @author Christoph Giesche
  */
 public class LoginResponse extends DownloadRedirectorResponse {
-    private String id;
-    @JsonProperty("login_success")
-    private boolean loginSuccess;
+	private String id;
+	@JsonProperty("login_success")
+	private boolean loginSuccess;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(final String id) {
+		this.id = id;
+	}
 
-    public boolean isLoginSuccess() {
-        return loginSuccess;
-    }
+	public boolean isLoginSuccess() {
+		return loginSuccess;
+	}
 
-    public void setLoginSuccess(boolean loginSuccess) {
-        this.loginSuccess = loginSuccess;
-    }
+	public void setLoginSuccess(final boolean loginSuccess) {
+		this.loginSuccess = loginSuccess;
+	}
 }

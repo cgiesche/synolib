@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -51,176 +51,176 @@ public class DownloadItem {
         return availablePieces;
     }
 
-    public void setAvailablePieces(int availablePieces) {
-        this.availablePieces = availablePieces;
+	public void setAvailablePieces(final int availablePieces) {
+		this.availablePieces = availablePieces;
     }
 
     public int getConnectedPeers() {
         return connectedPeers;
     }
 
-    public void setConnectedPeers(int connectedPeers) {
-        this.connectedPeers = connectedPeers;
+	public void setConnectedPeers(final int connectedPeers) {
+		this.connectedPeers = connectedPeers;
     }
 
     public long getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(long createdTime) {
-        this.createdTime = createdTime;
+	public void setCreatedTime(final long createdTime) {
+		this.createdTime = createdTime;
     }
 
     public String getCurrentRate() {
         return currentRate;
     }
 
-    public void setCurrentRate(String currentRate) {
-        this.currentRate = currentRate;
+	public void setCurrentRate(final String currentRate) {
+		this.currentRate = currentRate;
     }
 
     public String getCurrentSize() {
         return currentSize;
     }
 
-    public void setCurrentSize(String currentSize) {
-        this.currentSize = currentSize;
+	public void setCurrentSize(final String currentSize) {
+		this.currentSize = currentSize;
     }
 
     public int getDownloadedPieces() {
         return downloadedPieces;
     }
 
-    public void setDownloadedPieces(int downloadedPieces) {
-        this.downloadedPieces = downloadedPieces;
+	public void setDownloadedPieces(final int downloadedPieces) {
+		this.downloadedPieces = downloadedPieces;
     }
 
     public String getExtraInfo() {
         return extraInfo;
     }
 
-    public void setExtraInfo(String extraInfo) {
-        this.extraInfo = extraInfo;
+	public void setExtraInfo(final String extraInfo) {
+		this.extraInfo = extraInfo;
     }
 
     public String getFilename() {
         return filename;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+	public void setFilename(final String filename) {
+		this.filename = filename;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+	public void setId(final int id) {
+		this.id = id;
     }
 
     public int getPid() {
         return pid;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+	public void setPid(final int pid) {
+		this.pid = pid;
     }
 
     public String getProgress() {
         return progress;
     }
 
-    public void setProgress(String progress) {
-        this.progress = progress;
+	public void setProgress(final String progress) {
+		this.progress = progress;
     }
 
     public int getSeedingInterval() {
         return seedingInterval;
     }
 
-    public void setSeedingInterval(int seedingInterval) {
-        this.seedingInterval = seedingInterval;
+	public void setSeedingInterval(final int seedingInterval) {
+		this.seedingInterval = seedingInterval;
     }
 
     public int getSeedingRatio() {
         return seedingRatio;
     }
 
-    public void setSeedingRatio(int seedingRatio) {
-        this.seedingRatio = seedingRatio;
+	public void setSeedingRatio(final int seedingRatio) {
+		this.seedingRatio = seedingRatio;
     }
 
     public long getStartedTime() {
         return startedTime;
     }
 
-    public void setStartedTime(long startedTime) {
-        this.startedTime = startedTime;
+	public void setStartedTime(final long startedTime) {
+		this.startedTime = startedTime;
     }
 
     public int getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+	public void setStatus(final int status) {
+		this.status = status;
     }
 
     public int getTotalPeers() {
         return totalPeers;
     }
 
-    public void setTotalPeers(int totalPeers) {
-        this.totalPeers = totalPeers;
+	public void setTotalPeers(final int totalPeers) {
+		this.totalPeers = totalPeers;
     }
 
     public int getTotalPieces() {
         return totalPieces;
     }
 
-    public void setTotalPieces(int totalPieces) {
-        this.totalPieces = totalPieces;
+	public void setTotalPieces(final int totalPieces) {
+		this.totalPieces = totalPieces;
     }
 
     public String getTotalSize() {
         return totalSize;
     }
 
-    public void setTotalSize(String totalSize) {
-        this.totalSize = totalSize;
+	public void setTotalSize(final String totalSize) {
+		this.totalSize = totalSize;
     }
 
     public String getTotalUpload() {
         return totalUpload;
     }
 
-    public void setTotalUpload(String totalUpload) {
-        this.totalUpload = totalUpload;
+	public void setTotalUpload(final String totalUpload) {
+		this.totalUpload = totalUpload;
     }
 
     public String getUploadRate() {
         return uploadRate;
     }
 
-    public void setUploadRate(String uploadRate) {
-        this.uploadRate = uploadRate;
+	public void setUploadRate(final String uploadRate) {
+		this.uploadRate = uploadRate;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+	public void setUrl(final String url) {
+		this.url = url;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+	public void setUsername(final String username) {
+		this.username = username;
     }
 
 }

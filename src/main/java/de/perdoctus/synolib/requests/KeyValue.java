@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -26,8 +26,8 @@ public class KeyValue {
     private String key;
     private String value;
 
-    public KeyValue(String key, String value) {
-        this.key = key;
+	public KeyValue(final String key, final String value) {
+		this.key = key;
         this.value = value;
     }
 
@@ -35,16 +35,16 @@ public class KeyValue {
         return key;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+	public void setKey(final String key) {
+		this.key = key;
     }
 
     public String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+	public void setValue(final String value) {
+		this.value = value;
     }
 
     @Override

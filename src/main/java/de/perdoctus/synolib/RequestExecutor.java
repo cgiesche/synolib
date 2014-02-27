@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -19,6 +19,7 @@
 
 package de.perdoctus.synolib;
 
+import at.co.blogspot.javaskeleton.WebClientDevWrapper;
 import de.perdoctus.synolib.exceptions.CommunicationException;
 import de.perdoctus.synolib.exceptions.SynoException;
 import de.perdoctus.synolib.requests.DownloadRedirectorRequest;
@@ -39,8 +40,6 @@ import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.exc.UnrecognizedPropertyException;
 
-import at.co.blogspot.javaskeleton.WebClientDevWrapper;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -57,13 +56,13 @@ public class RequestExecutor {
 
     private static final Logger LOG = Logger.getLogger(RequestExecutor.class);
 
-    public RequestExecutor(URI targetURI) {
-        this.targetURI = targetURI;
+	public RequestExecutor(final URI targetURI) {
+		this.targetURI = targetURI;
     }
 
-    public <T extends DownloadRedirectorResponse> T executeRequest(DownloadRedirectorRequest drRequest, Class<T> clazz) throws SynoException {
+	public <T extends DownloadRedirectorResponse> T executeRequest(final DownloadRedirectorRequest drRequest, final Class<T> clazz) throws SynoException {
 
-        LOG.debug("Executing DR-Request: " + drRequest.getClass().getSimpleName());
+		LOG.debug("Executing DR-Request: " + drRequest.getClass().getSimpleName());
 
         if (this.targetURI == null) {
             throw new SynoException("");
@@ -73,58 +72,58 @@ public class RequestExecutor {
             WebClientDevWrapper.wrapClient(httpClient);
         }
 
-        HttpUriRequest request;
-        if (drRequest.getHttpMethod().equalsIgnoreCase("POST")) {
-            HttpPost postRequest = new HttpPost(targetURI);
+		final HttpUriRequest request;
+		if (drRequest.getHttpMethod().equalsIgnoreCase("POST")) {
+			final HttpPost postRequest = new HttpPost(targetURI);
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            for (KeyValue param : drRequest.getRequestParams()) {
-                params.add(new BasicNameValuePair(param.getKey(), param.getValue()));
+			final List<NameValuePair> params = new ArrayList<NameValuePair>();
+			for (final KeyValue param : drRequest.getRequestParams()) {
+				params.add(new BasicNameValuePair(param.getKey(), param.getValue()));
             }
 
-            HttpEntity entity;
-            try {
+			final HttpEntity entity;
+			try {
                 entity = new UrlEncodedFormEntity(params, "UTF-8");
-            } catch (UnsupportedEncodingException ex) {
-                throw new RuntimeException(ex);
+			} catch (final UnsupportedEncodingException ex) {
+				throw new RuntimeException(ex);
             }
 
             postRequest.setEntity(entity);
             request = postRequest;
         } else if (drRequest.getHttpMethod().equalsIgnoreCase("GET")) {
-            String queryParams = StringUtils.join(drRequest.getRequestParams(), '&');
-            request = new HttpGet(targetURI + "?" + queryParams);
+			final String queryParams = StringUtils.join(drRequest.getRequestParams(), '&');
+			request = new HttpGet(targetURI + "?" + queryParams);
         } else {
             throw new RuntimeException("Method " + drRequest.getHttpMethod() + " not supported yet!");
         }
 
-        HttpResponse response;
-        try {
+		final HttpResponse response;
+		try {
             response = httpClient.execute(request);
-        } catch (IOException ex) {
-            throw new CommunicationException("Failed to execute http call.", ex);
+		} catch (final IOException ex) {
+			throw new CommunicationException("Failed to execute http call.", ex);
         }
 
         if (response.getStatusLine().getStatusCode() != 200) {
             throw new CommunicationException(response.getStatusLine().getReasonPhrase());
         }
 
-        ObjectMapper mapper = new ObjectMapper();
-        HttpEntity entity = response.getEntity();
+		final ObjectMapper mapper = new ObjectMapper();
+		final HttpEntity entity = response.getEntity();
 
-        if (entity == null) {
+		if (entity == null) {
             throw new CommunicationException("Got no response body!");
         }
 
-        T drResponse;
-        try {
+		final T drResponse;
+		try {
             drResponse = mapper.readValue(entity.getContent(), clazz);
-        } catch (UnrecognizedPropertyException ex) {
-            throw new CommunicationException("Failed to parse JSON response!", ex);
-        } catch (IOException ex) {
-            throw new CommunicationException("Could not read response body!", ex);
-        } catch (IllegalStateException ex) {
-            throw new CommunicationException("Could not read response body stream!", ex);
+		} catch (final UnrecognizedPropertyException ex) {
+			throw new CommunicationException("Failed to parse JSON response!", ex);
+		} catch (final IOException ex) {
+			throw new CommunicationException("Could not read response body!", ex);
+		} catch (final IllegalStateException ex) {
+			throw new CommunicationException("Could not read response body stream!", ex);
         }
 
         return drResponse;

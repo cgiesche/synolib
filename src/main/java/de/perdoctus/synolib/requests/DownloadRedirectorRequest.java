@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -28,19 +28,19 @@ import java.util.Set;
  */
 public abstract class DownloadRedirectorRequest {
 
-    protected final Set<KeyValue> requestParams = new HashSet<KeyValue>();
+	protected final Set<KeyValue> requestParams = new HashSet<KeyValue>();
 
-    private final String httpMethod;
+	private final String httpMethod;
 
-    public DownloadRedirectorRequest(String httpMethod) {
-        this.httpMethod = httpMethod;
-    }
+	public DownloadRedirectorRequest(final String httpMethod) {
+		this.httpMethod = httpMethod;
+	}
 
-    public String getHttpMethod() {
-        return this.httpMethod;
-    }
+	public String getHttpMethod() {
+		return this.httpMethod;
+	}
 
-    public Set<KeyValue> getRequestParams() {
-        return requestParams;
-    }
+	public Set<KeyValue> getRequestParams() {
+		return requestParams;
+	}
 }

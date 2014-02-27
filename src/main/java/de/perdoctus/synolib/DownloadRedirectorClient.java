@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Christoph Giesche
+ * Copyright 2014 Christoph Giesche
  *
  * This file is part of synolib.
  *
@@ -47,15 +47,15 @@ public class DownloadRedirectorClient {
 
     }
 
-    public DownloadRedirectorClient(String username, String password, URI synoUri) {
-        this.password = password;
+	public DownloadRedirectorClient(final String username, final String password, final URI synoUri) {
+		this.password = password;
         this.username = username;
 
         this.executor = new RequestExecutor(synoUri);
     }
 
-    public AddUrlResponse addDownloadUrl(URI uri) throws SynoException {
-        if (sessionId == null) {
+	public AddUrlResponse addDownloadUrl(final URI uri) throws SynoException {
+		if (sessionId == null) {
             login();
         }
 
@@ -82,27 +82,27 @@ public class DownloadRedirectorClient {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+	public void setPassword(final String password) {
+		this.password = password;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+	public void setUsername(final String username) {
+		this.username = username;
     }
 
-    public void setSynoUri(URI uri) {
-        this.executor = new RequestExecutor(uri);
+	public void setSynoUri(final URI uri) {
+		this.executor = new RequestExecutor(uri);
     }
 
     private void login() throws SynoException {
-        LoginRequest request = new LoginRequest(username, password);
-        LoginResponse response = executor.executeRequest(request, LoginResponse.class);
+		final LoginRequest request = new LoginRequest(username, password);
+		final LoginResponse response = executor.executeRequest(request, LoginResponse.class);
 
-        if (response.isSuccess()) {
+		if (response.isSuccess()) {
             if (response.isLoginSuccess()) {
                 this.sessionId = response.getId();
             } else {
